@@ -69,6 +69,10 @@ class MainActivity : AppCompatActivity(), NavigationView.OnNavigationItemSelecte
 //                auth.signOut();
                 startActivity(Intent(applicationContext, MainActivity::class.java))
             }
+            R.id.nav_add_meal-> {
+                setToolbarTitle("Chefs Corner")
+                changeFragment(AddMealFragment())
+            }
         }
         return true
 
