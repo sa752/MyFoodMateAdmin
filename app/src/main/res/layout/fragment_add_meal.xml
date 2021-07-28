@@ -1,0 +1,102 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".AddMealFragment">
+
+    <ImageView
+        android:id="@+id/editMealImage"
+        android:layout_width="match_parent"
+        android:layout_height="269dp"
+        android:src="@drawable/ic_baseline_image_24"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <EditText
+        android:id="@+id/editMealTitle"
+        android:layout_width="match_parent"
+        android:layout_height="40dp"
+        android:layout_marginStart="24dp"
+        android:layout_marginLeft="24dp"
+        android:layout_marginTop="20dp"
+        android:layout_marginEnd="24dp"
+        android:layout_marginRight="24dp"
+        android:background="@drawable/rounded_input_less_radius"
+        android:drawableStart="@drawable/ic_baseline_food_bank_24"
+        android:drawableLeft="@drawable/ic_baseline_food_bank_24"
+        android:drawablePadding="10dp"
+        android:hint="Meal Name"
+        android:inputType="textShortMessage"
+        android:padding="10dp"
+        android:textColorHint="@color/purple_200"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/editMealImage" />
+
+    <EditText
+        android:id="@+id/editPrice"
+        android:layout_width="match_parent"
+        android:layout_height="40dp"
+        android:layout_marginStart="24dp"
+        android:layout_marginLeft="24dp"
+        android:layout_marginTop="20dp"
+        android:layout_marginEnd="24dp"
+        android:layout_marginRight="24dp"
+        android:background="@drawable/rounded_input_less_radius"
+        android:drawableStart="@drawable/ic_baseline_monetization_on_24"
+        android:drawableLeft="@drawable/ic_baseline_monetization_on_24"
+        android:drawablePadding="10dp"
+        android:hint="Price"
+        android:inputType="number"
+        android:padding="10dp"
+        android:textColorHint="@color/purple_200"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/editMealTitle" />
+
+
+    <EditText
+        android:id="@+id/editMealDescription"
+        android:layout_width="match_parent"
+        android:layout_height="100dp"
+        android:layout_marginStart="24dp"
+        android:layout_marginLeft="24dp"
+        android:layout_marginTop="20dp"
+        android:layout_marginEnd="24dp"
+        android:layout_marginRight="24dp"
+        android:background="@drawable/rounded_input_less_radius"
+        android:drawableStart="@drawable/ic_baseline_message_24"
+        android:drawableLeft="@drawable/ic_baseline_message_24"
+        android:drawablePadding="10dp"
+        android:hint="Description"
+        android:inputType="textLongMessage"
+        android:padding="10dp"
+        android:textColorHint="@color/purple_200"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/editPrice" />
+
+    <Button
+        android:id="@+id/add_meal_Button"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="32dp"
+        android:layout_marginLeft="32dp"
+        android:layout_marginEnd="32dp"
+        android:layout_marginRight="32dp"
+        android:background="@drawable/button_rounded_corners"
+        android:drawableStart="@drawable/ic_baseline_cloud_upload_24"
+        android:drawableLeft="@drawable/ic_baseline_cloud_upload_24"
+        android:drawablePadding="10dp"
+        android:text="Add Meal"
+        android:textSize="16sp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/editMealDescription" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>
