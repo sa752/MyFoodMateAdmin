@@ -80,6 +80,18 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/editPrice" />
 
+    <ProgressBar
+        android:visibility="invisible"
+        android:id="@+id/uploadProgressBar"
+        android:layout_width="match_parent"
+        android:layout_height="70dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="1.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/editMealDescription"
+        app:layout_constraintVertical_bias="0.105" />
+
     <Button
         android:id="@+id/add_meal_Button"
         android:layout_width="match_parent"
@@ -97,6 +109,6 @@
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/editMealDescription" />
+        app:layout_constraintTop_toBottomOf="@+id/uploadProgressBar" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
