@@ -97,6 +97,7 @@ class AddMealFragment : Fragment() {
                 dataRef.child("name").setValue(mealName)
                 dataRef.child("price").setValue(mealPrice)
                 dataRef.child("desc").setValue(mealDesc)
+                dataRef.child("imageUrl").setValue("https://firebasestorage.googleapis.com/v0/b/foodlyx-b63f6.appspot.com/o/meal_images%2F${uniqueID}?alt=media&token=e6145dd1-4a84-4c88-a11e-4d825fbbd906")
                 startActivity(Intent(context, MainActivity::class.java))
             } else {
                 Toast.makeText(context, "Image not selected", Toast.LENGTH_LONG).show()
