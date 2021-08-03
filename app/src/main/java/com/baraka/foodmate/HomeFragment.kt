@@ -1,6 +1,7 @@
 package com.baraka.foodmate
 
 import android.os.Bundle
+import android.util.Log
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
@@ -16,9 +17,8 @@ class HomeFragment : Fragment() {
 
     //initialize firebase
     private var databaseReference:DatabaseReference? = null
-    private  var databaseListener:  ValueEventListener? = null
-    private  lateinit var listOfMeals: MutableList<MealItem>
-    private lateinit var mealAdapater: MealListAdapter
+    private  lateinit var listOfMeals: ArrayList<MealItem>
+    private lateinit var mealAdapter: MealListAdapter
 
 
 
@@ -32,34 +32,30 @@ class HomeFragment : Fragment() {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
-        listOfMeals = arrayListOf()
-        getData()
-        home_page_recycler_view.apply {
-            layoutManager = LinearLayoutManager(context)
-            setHasFixedSize(true)
-            mealAdapater = MealListAdapter(context, listOfMeals )
-            adapter = mealAdapater
-        }
+        home_page_recycler_view.layoutManager = LinearLayoutManager(context)
+        home_page_recycler_view.setHasFixedSize(true)
+        listOfMeals = MealDataSource.createDataSet()
+        mealAdapter = MealListAdapter(requireContext(), listOfMeals)
+        home_page_recycler_view.adapter  = mealAdapter
     }
 
-    override fun onDestroyView() {
-        super.onDestroyView()
-        databaseReference?.removeEventListener(databaseListener!!)
-    }
 
  private  fun getData(){
-       databaseReference = FirebaseDatabase.getInstance().getReference("meals_data")
+
+       databaseReference = FirebaseDatabase.getInstance().getReference("meal_data")
        databaseReference!!.addValueEventListener(object : ValueEventListener {
 
            override fun onDataChange(snapshot: DataSnapshot) {
                if(snapshot.exists()){
-                   for ( mealItem in snapshot.children){
-                       val mealItemData = mealItem.getValue(MealItem::class.java)
-                       mealItemData!!.key = mealItem.key
-                       listOfMeals.add(mealItemData)
+                   for ( mealSnapShot in snapshot.children){
+                       val mealItemData = mealSnapShot.getValue(MealItem::class.java)
+//                       mealItemData!!.key = mealSnapShot.key
+                       listOfMeals.add(mealItemData!!)
+
                    }
-                   //unsure
-                   home_page_recycler_view.adapter = MealListAdapter(requireContext(),listOfMeals )
+
+                   mealAdapter = MealListAdapter(requireContext(), listOfMeals)
+                   home_page_recycler_view.adapter  = mealAdapter
                }
 
            }
